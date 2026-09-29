@@ -7,7 +7,9 @@ header {
 }
 
 .container {
-    margin: 0px 40px;
+    max-width: 1440px;
+    margin: 0px auto;    
+    padding: 0px 40px;
 }
 
 .header-top {
@@ -30,6 +32,11 @@ li {
     padding-left: 50px;
 }
 
+li > a  {
+    all: unset;
+    cursor: pointer;
+}
+
 .header-menu-item {
     font-family: Arial;
     font-size: 24px;
@@ -47,5 +54,19 @@ li {
     font-weight: 400;
     border: thick double #32a1ce;
     padding: 20px;
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.project-item {
+    border: thick double #32a1ce;
+    border-radius: 10px;
+    width: 250px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
 }
 
