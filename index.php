@@ -58,7 +58,7 @@ $result->execute();
                     <h3><?= $user['name'] ?></h3>
                     <p><?= $user['email'] ?></p>
                     <p><?= $user['password'] ?></p>
-                    <a href="/subject.php?id=<?= $user['id'] ?>">Подробнее</a>
+                    <a href="/web2/subject.php?id=<?= $user['id'] ?>">Подробнее</a>
                 </div>
                 <?php endforeach; ?>
             </div>
