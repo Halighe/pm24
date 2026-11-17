@@ -1,3 +1,13 @@
+<?php
+require __DIR__ . "\bd.php";
+
+$stmt = "SELECT id, name, email, password FROM user";
+$result = $pdo->prepare($stmt);
+$result->execute();
+// while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+//  print_r($row);
+// }
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -43,36 +53,14 @@
         <div class="container">
             <h1 class="main-title">Мои проекты</h1>
             <div class="projects">
+                <?php foreach ($result as $user): ?>
                 <div class="project-item">
-                    <h3>Название проекта 1</h3>
-                    <p>Описание проекта 1</p>
-                    <button>Подробнее</button>
+                    <h3><?= $user['name'] ?></h3>
+                    <p><?= $user['email'] ?></p>
+                    <p><?= $user['password'] ?></p>
+                    <a href="/subject.php?id=<?= $user['id'] ?>">Подробнее</a>
                 </div>
-                <div class="project-item">
-                    <h3>Название проекта 2</h3>
-                    <p>Описание проекта 2</p>
-                    <button>Подробнее</button>
-                </div>
-                <div class="project-item">
-                    <h3>Название проекта 3</h3>
-                    <p>Описание проекта 3</p>
-                    <button>Подробнее</button>
-                </div>
-                <div class="project-item">
-                    <h3>Название проекта 4</h3>
-                    <p>Описание проекта 4</p>
-                    <button>Подробнее</button>
-                </div>
-                <div class="project-item">
-                    <h3>Название проекта 5</h3>
-                    <p>Описание проекта 5</p>
-                    <button>Подробнее</button>
-                </div>
-                <div class="project-item">
-                    <h3>Название проекта 6</h3>
-                    <p>Описание проекта 6</p>
-                    <button>Подробнее</button>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
